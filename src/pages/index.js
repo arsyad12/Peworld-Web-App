@@ -56,7 +56,6 @@ export default function Home() {
               Kenapa harus mencari tallent di peworld
             </h1>
             {[
-              "Fastresponse.",
               "Smart",
               "Full Contribution",
               "Fast Learnner",
@@ -72,7 +71,53 @@ export default function Home() {
       </div>
       {/*End of Section 2 */}
 
-      
+      {/*Section 3 */}
+      <div className="container mx-auto mt-20">
+        <div className="grid grid-cols-2 items-center">
+          <div className="content-text">
+            <h1 className="h1 mb-5">Skill Tallent</h1>
+            <p className="mb-6">
+              Talent belajar coding dengan kurikulum industri secara intensif
+              yang diajarkan langsung oleh mentor berkompeten di bidangnya.
+            </p>
+            <div className="grid grid-cols-2">
+              <div>
+                {["Java.", "Kotlin", "PHP", "Javascript"]?.map(
+                  (item, key) => (
+                    <div key={key} className="flex gap-4 mb-6">
+                      <img src="/tick2.png" />
+                      <p>{item}</p>
+                    </div>
+                  )
+                )}
+              </div>
+
+              <div>
+                {[
+                  "Golang.",
+                  "C++",
+                  "Ruby",
+                  "10 Bahasa Lainnya"
+                ]?.map((item, key) => (
+                  <div key={key} className="flex gap-4 mb-6">
+                    <img src="/tick2.png" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="content-img">
+            <img src="/third.png" />
+          </div>
+        </div>
+      </div>
+      {/*End of Section 3 */}
+
+{/*Section 4 */}
+
+{/*End of Section 4 */}
+
     </>
   );
 }
