@@ -2,3 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.logo{
+    width: 127px;
+    height: 35px;
+}
+
+
+.btn-signin{
+    background-color: #5E50A1;
+    border-color: #5E50A1;
+    color: white;
+    width: 86px;
+    height: 44px;
+
+}
+
+.btn-signup{
+    border-color: #5E50A1;
+    color:#5E50A1;
+    width: 86px;
+    height: 44px;
+}
+
+.btn-start{
+    border-color: #5E50A1;
+    background-color: #5E50A1;
+    color:white;
+}
+
+.h1{
+    font-size: 44px;
+    font-weight: 600;
+}
