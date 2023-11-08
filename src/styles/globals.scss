@@ -1,7 +1,7 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 .logo{
     width: 127px;
@@ -13,16 +13,12 @@
     background-color: #5E50A1;
     border-color: #5E50A1;
     color: white;
-    width: 86px;
-    height: 44px;
 
 }
 
 .btn-signup{
     border-color: #5E50A1;
     color:#5E50A1;
-    width: 86px;
-    height: 44px;
 }
 
 .btn-start{
@@ -39,8 +35,7 @@
 .box-cta{
     background-color: #5E50A1;
     border-color: #5E50A1;
-    height: 227px;
-    width: 1140px;
+
     border-radius: 25px 10px 25px 10px;
 }
 
@@ -48,6 +43,7 @@
     background-color:#FFFFFF;
     color: #5E50A1;
     border-color:  #FFFFFF;
+    border-radius: 10px;
 }
 
 .text-cta{
@@ -64,3 +60,4 @@ color: white;
 .p-footer{
     color: #FFFFFF;
 }
+

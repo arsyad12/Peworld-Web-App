@@ -11,9 +11,9 @@ export default function Home() {
         <div className="flex justify-between">
           <img src="/logo_grape.png" alt="logo" />
 
-          <div className="flex gap-10">
-            <button class="p-1 rounded border-4 btn-signin">Masuk</button>
-            <button class="p-1 rounded border-4 btn-signup">Daftar</button>
+          <div className="flex gap-3">
+            <button class="p-1 rounded border-4 btn-signin w-1/2">Masuk</button>
+            <button class="p-1 rounded border-4 btn-signup w-1/2">Daftar</button>
           </div>
         </div>
       </div>
@@ -23,22 +23,24 @@ export default function Home() {
       {/*Section 1 */}
 
       <div className="container mx-auto mt-20">
-        <div className="grid grid-cols-2 items-center">
-          <div className="">
+        <div className="grid  grid-cols-1 md:grid-cols-3 items-center m-20">
+          <div className="col-span-2">
             <h1 className="h1 mb-8">
               Talenta terbaik negri untuk perubahan revolusi 4.0
             </h1>
             <p>
-              Pijar Camp merupakan program bootcamp yang bertujuan untuk
-              membantu kamu dalam meningkatkan kompetensi di bidang teknologi.
-              Melalui program ini, kamu berkesempatan untuk dilatih langsung
+              Peworld adalah web apps yang bertujuan untuk
+              membantu kamu mendapatkan talent yang berkompeten di bidang teknologi.
+              Melalui web, kamu berkesempatan untuk menemukan talent yang dilatih langsung
               dengan mentor yang kompeten di bidangnya.
             </p>
-            <button class="p-2 rounded border-4 mt-10 btn-start">
+            <button class="p-2 rounded border-4 mt-10 btn-start mb-10">
               Mulai Dari Sekarang
             </button>
           </div>
-          <img src="/firstpic.png" alt="logo" />
+          <div className="">
+          <img className="" src="/firstpic.png" alt="logo" />
+          </div>
         </div>
       </div>
 
@@ -46,13 +48,13 @@ export default function Home() {
 
       {/*Section 2 */}
       <div className="container mx-auto mt-20">
-        <div className="grid grid-cols-2 items-center">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center m-20">
+          <div className="">
             <img src="/second.png" alt="logo" />
           </div>
 
-          <div>
-            <h1 className="h1 mb-10">
+          <div className="col-span-2 mx-10">
+            <h1 className="font-bold text-[20px] text-center md:text-left md:text-[30px] mb-10">
               Kenapa harus mencari tallent di peworld
             </h1>
             {["Smart", "Full Contribution", "Fast Learnner", "Adaptable"]?.map(
@@ -69,18 +71,18 @@ export default function Home() {
       {/*End of Section 2 */}
 
       {/*Section 3 */}
-      <div className="container mx-auto mt-20">
-        <div className="grid grid-cols-2 items-center">
-          <div className="content-text">
-            <h1 className="h1 mb-5">Skill Tallent</h1>
-            <p className="mb-6">
+      <div className="container mx-auto mt-20 d-dekstop">
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center m-20">
+          <div className="content-text col-span-2">
+            <h1 className="h1 mb-5 md:px-40">Skill Tallent</h1>
+            <p className="mb-6 md:px-40 text-justify">
               Talent belajar coding dengan kurikulum industri secara intensif
               yang diajarkan langsung oleh mentor berkompeten di bidangnya.
             </p>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2">
               <div>
                 {["Java.", "Kotlin", "PHP", "Javascript"]?.map((item, key) => (
-                  <div key={key} className="flex gap-4 mb-6">
+                  <div key={key} className="flex gap-4 mb-6 md:mx-40">
                     <img src="/tick2.png" />
                     <p>{item}</p>
                   </div>
@@ -104,15 +106,16 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/*End of Section 3 */}
 
-      {/*Section 4 */}
-      <div className="container grid place-items-center mt-20">
-        <div className="box-cta border-4 grid grid-cols-2 items-center">
-          <div className="px-10 text-cta">
+      {/*Section 4 CTA */}
+      <div className="grid place-items-center mt-20">
+        <div className="box-cta border-4 grid grid-cols-1 md:grid-cols-2 items-center md:m-20 p-20">
+          <div className="text-[20px] text-white text-center md:text-left md:px-10 md:text-[30px] md:text-white ">
             <p>Menuju Tak Terbatas dan Melampauinya</p>
           </div>
-          <div className="grid justify-items-end pr-10">
+          <div className="grid mt-5 md:grid-cols-1 md:justify-items-end">
             <button className="border-4 p-2 btn-cta">
               Mulai Dari Sekarang
             </button>
