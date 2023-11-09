@@ -1,45 +1,38 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 
+import Header from "@/component/header";
+import Footer from "@/component/footer";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <>
-      {/* header */}
-      <div className="container mx-auto mt-6">
-        <div className="flex justify-between">
-          <img src="/logo_grape.png" alt="logo" />
-
-          <div className="flex gap-3">
-            <button class="p-1 rounded border-4 btn-signin w-1/2">Masuk</button>
-            <button class="p-1 rounded border-4 btn-signup w-1/2">Daftar</button>
-          </div>
-        </div>
-      </div>
-
-      {/*end of header */}
+      {/*Section Header*/}
+      <Header />
+      {/*End of Section Header*/}
 
       {/*Section 1 */}
 
       <div className="container mx-auto mt-20">
         <div className="grid  grid-cols-1 md:grid-cols-3 items-center m-20">
-          <div className="col-span-2">
+          <div className="order-last md:order-first md:col-span-2">
             <h1 className="h1 mb-8">
               Talenta terbaik negri untuk perubahan revolusi 4.0
             </h1>
-            <p>
-              Peworld adalah web apps yang bertujuan untuk
-              membantu kamu mendapatkan talent yang berkompeten di bidang teknologi.
-              Melalui web, kamu berkesempatan untuk menemukan talent yang dilatih langsung
-              dengan mentor yang kompeten di bidangnya.
+            <p className="text-justify">
+              Peworld adalah web apps yang bertujuan untuk membantu kamu
+              mendapatkan talent yang berkompeten di bidang teknologi. Melalui
+              web, kamu berkesempatan untuk menemukan talent yang dilatih
+              langsung dengan mentor yang kompeten di bidangnya.
             </p>
             <button class="p-2 rounded border-4 mt-10 btn-start mb-10">
               Mulai Dari Sekarang
             </button>
           </div>
           <div className="">
-          <img className="" src="/firstpic.png" alt="logo" />
+            <img className="" src="/firstpic.png" alt="logo" />
           </div>
         </div>
       </div>
@@ -73,7 +66,7 @@ export default function Home() {
       {/*Section 3 */}
       <div className="container mx-auto mt-20 d-dekstop">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center m-20">
-          <div className="content-text col-span-2">
+          <div className="content-text order-last md:order-first md:col-span-2">
             <h1 className="h1 mb-5 md:px-40">Skill Tallent</h1>
             <p className="mb-6 md:px-40 text-justify">
               Talent belajar coding dengan kurikulum industri secara intensif
@@ -124,27 +117,9 @@ export default function Home() {
       </div>
       {/*End of Section 4 */}
 
-      <div className="footer mt-20 grid grid-cols-1">
-        <div className="px-10 pt-10">
-          <img src="/logo_white.png" alt="logowhite" />
-          <p className="pt-10 p-footer">
-            Jl. Yos Sudarso No.KM. 8, Umban Sari, Kec. Rumbai, Kota Pekanbaru,
-            Riau 28266
-          </p>
-          <hr className="mt-10" />
-        </div>
-
-        <div className=" grid grid-cols-2 mb-20">
-          <div className="px-10 pt-10">
-            <p className="p-footer">2020 Pewworld. All right reserved</p>
-          </div>
-          <div className="flex justify-end gap-10 pr-10 pt-10">
-            <p className="p-footer">Telepon</p>
-            <p className="p-footer">Email</p>
-            
-          </div>
-        </div>
-      </div>
+      {/*Section Footer*/}
+      <Footer />
+      {/*End of Section Footer*/}
     </>
   );
 }
