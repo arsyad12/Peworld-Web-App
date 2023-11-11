@@ -76,7 +76,7 @@ function Talent(props) {
                     </div>
 
                     <div className="flex justify-center md:justify-start gap-2 md:gap-3  m-2">
-                      {["PHP", "Javascript", "React Js"]?.map((item, key) => (
+                      {item.skill.map((item, key) => (
                         <button
                           key={key}
                           className="border-2  bg-[#FBB01799] w-[120px] mt-[15px] md:mt-[5px] mb-[10px] rounded-[4px] border-[#FBB01799]"
