@@ -87,9 +87,21 @@ const lisTalent = [
 //merubah halaman untuk berjalan di server side rendering
 
 export default function handler(req, res) {
-  res.status(200).json({
-    status:true,
-    message: "get data succes",
-    data : lisTalent
-  });
+
+  if (req.query.id) {
+    res.status(200).json({
+      status:true,
+      message: "get data succes",
+      data : lisTalent.find((item) => item.id === parseInt(req.query.id))
+    });
+  } else {
+    
+    res.status(200).json({
+      status:true,
+      message: "get data succes",
+      data : lisTalent
+    });
+
+  }
+
 }

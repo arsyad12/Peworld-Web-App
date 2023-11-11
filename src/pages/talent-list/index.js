@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Head from "next/head";
 import axios from "axios";
+import Router from "next/router";
 
 function Talent(props) {
   const [listData, setListData] = React.useState(props.data.slice(0, 4));
@@ -87,13 +88,15 @@ function Talent(props) {
                   </div>
 
                   <div className="identity col-span-2 flex items-center flex justify-center md:justify-start mb-[20px]">
-                    <button className="border-2 p-[2px] bg-[#5E50A1] w-1/2 text-[white] rounded-[4px] border-[#5E50A1] mt-[5px] md:mt-[20px]">
+                    <button onClick={(()=>Router.push(`/talent-list/detail/${item.id}`))} className="border-2 p-[2px] bg-[#5E50A1] w-1/2 text-[white] rounded-[4px] border-[#5E50A1] mt-[5px] md:mt-[20px]">
                       Lihat Profile
                     </button>
                   </div>
                 </div>
               </div>
-            ))}
+              
+            ))
+           }
           </div>
         </div>
         {/* end of card */}
