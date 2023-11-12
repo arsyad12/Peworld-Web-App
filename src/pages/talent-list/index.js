@@ -12,23 +12,19 @@ function Talent(props) {
 
   const [currentPage, setCurrentPage] = React.useState(1);
 
-  const countData = Math.round(props?.data?.length / 4)
+  const countData = Math.round(props?.data?.length / 4);
 
-  console.log(countData)
-  
-  const handlePagination=(nextPage)=>{
-    
-    setCurrentPage(nextPage)
+  console.log(countData);
+
+  const handlePagination = (nextPage) => {
+    setCurrentPage(nextPage);
 
     if (nextPage > 1) {
-      setListData(props?.data?.slice(4 * (nextPage-1), 4*(nextPage)))
-    } 
-    else {
-
-      setListData(props?.data?.slice(0,4))
-      
+      setListData(props?.data?.slice(4 * (nextPage - 1), 4 * nextPage));
+    } else {
+      setListData(props?.data?.slice(0, 4));
     }
-  }
+  };
   // console.log(currentPage)
   // console.log(listData);
 
@@ -43,11 +39,28 @@ function Talent(props) {
       <div className="bg-[#F6F7F8]">
         {/* Head */}
         <div className="flex items-center mt-5 bg-[#5E50A1] h-[80px]  ">
-          <h5 className="text-[white] text-[20px] mx-10">
+          <h5 className="text-[white] text-[20px] mx-10 ">
             Top Talent | Peworlds
           </h5>
         </div>
         {/* end of head */}
+
+        {/* search bar */}
+        <div className="m-10 search-bar">
+          <div className="container flex">
+            
+            <input className="w-full border drop-shadow-md p-3" type="text" placeholder="Username" ></input>
+            
+            <img src="/search.png" alt="search" className="absolute p-3 mx-[43%] md:mx-[80%]"/>
+
+            <img src="/line 2.png" alt="search" className="absolute mx-[55%]  md:mx-[84%] p-1 h-[50px]"/>
+          
+          <div className="absolute p-2 mx-[60%] md:mx-[85%]">
+            <button className=" border-4 border-[#5E50A1] bg-[#5E50A1] text-[#FFFFFF] rounded-[5px] p-[2px] w-[60px] md:w-[100px]">Search</button>
+            </div>
+          </div>
+        </div>
+        {/* end of search bar */}
 
         {/* card */}
         <div className="m-10 card-talent">
@@ -88,15 +101,18 @@ function Talent(props) {
                   </div>
 
                   <div className="identity col-span-2 flex items-center flex justify-center md:justify-start mb-[20px]">
-                    <button onClick={(()=>Router.push(`/talent-list/detail/${item.id}`))} className="border-2 p-[2px] bg-[#5E50A1] w-1/2 text-[white] rounded-[4px] border-[#5E50A1] mt-[5px] md:mt-[20px]">
+                    <button
+                      onClick={() =>
+                        Router.push(`/talent-list/detail/${item.id}`)
+                      }
+                      className="border-2 p-[2px] bg-[#5E50A1] w-1/2 text-[white] rounded-[4px] border-[#5E50A1] mt-[5px] md:mt-[20px]"
+                    >
                       Lihat Profile
                     </button>
                   </div>
                 </div>
               </div>
-              
-            ))
-           }
+            ))}
           </div>
         </div>
         {/* end of card */}
@@ -121,7 +137,7 @@ function Talent(props) {
                         ? "border-2 bg-[#5E50A1] border-[#5E50A1] p-[10px] text-[white]"
                         : "border-2 bg-[#FFFFFF] border-[#E2E5ED] p-[10px]"
                     }`}
-                  onClick={(()=>handlePagination(incrementValueButton))}
+                    onClick={() => handlePagination(incrementValueButton)}
                   >
                     {incrementValueButton}
                   </button>

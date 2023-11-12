@@ -7,7 +7,7 @@ function Header() {
       {/* header */}
 
       <header className="container mx-auto mt-6 ">
-        <nav className="flex justify-between">
+        <nav className="flex justify-between drop-shadow-md">
           
           <img className="px-[15px] md:px-[1px]" src="/logo_grape.png" alt="logo" style={{height:"35px", width:"127px"}}/>
           
