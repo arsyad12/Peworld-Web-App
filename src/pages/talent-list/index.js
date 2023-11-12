@@ -4,8 +4,9 @@ import React from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Head from "next/head";
-import axios from "axios";
+import axios, { all } from "axios";
 import Router from "next/router";
+import { Aldrich } from "next/font/google";
 
 function Talent(props) {
   const [listData, setListData] = React.useState(props.data.slice(0, 4));
@@ -14,7 +15,7 @@ function Talent(props) {
 
   const countData = Math.round(props?.data?.length / 4);
 
-  console.log(countData);
+  const [searchBar, setSearchBar] = React.useState("");
 
   const handlePagination = (nextPage) => {
     setCurrentPage(nextPage);
@@ -25,6 +26,7 @@ function Talent(props) {
       setListData(props?.data?.slice(0, 4));
     }
   };
+
   // console.log(currentPage)
   // console.log(listData);
 
@@ -43,20 +45,35 @@ function Talent(props) {
             Top Talent | Peworlds
           </h5>
         </div>
+
         {/* end of head */}
 
         {/* search bar */}
         <div className="m-10 search-bar">
           <div className="container flex">
-            
-            <input className="w-full border drop-shadow-md p-3" type="text" placeholder="Username" ></input>
-            
-            <img src="/search.png" alt="search" className="absolute p-3 mx-[43%] md:mx-[80%]"/>
+            <input
+              className="w-full border drop-shadow-md p-3 rounded-[5px]"
+              type="text"
+              placeholder="Username"
+              onChange={(item) => setSearchBar(item.target.value)}
+            ></input>
 
-            <img src="/line 2.png" alt="search" className="absolute mx-[55%]  md:mx-[84%] p-1 h-[50px]"/>
-          
-          <div className="absolute p-2 mx-[60%] md:mx-[85%]">
-            <button className=" border-4 border-[#5E50A1] bg-[#5E50A1] text-[#FFFFFF] rounded-[5px] p-[2px] w-[60px] md:w-[100px]">Search</button>
+            <img
+              src="/search.png"
+              alt="search"
+              className="absolute p-3 mx-[43%] md:mx-[80%]"
+            />
+
+            <img
+              src="/line 2.png"
+              alt="search"
+              className="absolute mx-[55%]  md:mx-[84%] p-1 h-[50px]"
+            />
+
+            <div className="absolute p-2 mx-[60%] md:mx-[85%]">
+              <button className=" border-4 border-[#5E50A1] bg-[#5E50A1] text-[#FFFFFF] rounded-[5px] p-[2px] w-[60px] md:w-[100px]">
+                Search
+              </button>
             </div>
           </div>
         </div>
@@ -65,7 +82,7 @@ function Talent(props) {
         {/* card */}
         <div className="m-10 card-talent">
           <div className="container">
-            {listData.map((item, key) => (
+            {listData.filter((item) => (item.fullname.includes(searchBar))).map((item, key) => (
               <div key={key} className="border bg-[white] drop-shadow-md">
                 <div className="grid grid-cols-1 md:grid-cols-8">
                   <div className="img-profile flex justify-center md:justify-left p-[20px] ">
