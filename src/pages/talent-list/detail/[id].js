@@ -15,7 +15,7 @@ function Detail(props) {
 
       <Header />
 
-      <div className="bg-[#F6F7F8]">
+      <div className="bg-[#F6F7F8] ">
         <div className="wrap2border p-10 m-10">
           <div className="container mx-auto border rounded-t-[10px] bg-[#5E50A1] h-[100px] flex justify-center pt-12">
             <img
@@ -63,7 +63,7 @@ function Detail(props) {
               </div>
             </div>
 
-            <div className="flex justify-center mt-[10px]">
+            <div className="flex justify-center mt-[10px] mb-[50px]">
               <div className="w-[300px] grid justify-items-center md:flex md:flex-wrap md:justify-center md:gap-2">
                 {data.skill.map((item, key) => (
                   <button
@@ -77,9 +77,10 @@ function Detail(props) {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
 
-      <Footer />
+      
     </>
   );
 }
