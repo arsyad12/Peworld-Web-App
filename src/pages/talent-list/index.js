@@ -9,7 +9,7 @@ import Router from "next/router";
 import { Aldrich } from "next/font/google";
 
 function Talent(props) {
-  const [listData, setListData] = React.useState(props.data.slice(0, 4));
+  const [listData, setListData] = React.useState(props.data.slice(0, 4)); 
 
   const [currentPage, setCurrentPage] = React.useState(1);
 

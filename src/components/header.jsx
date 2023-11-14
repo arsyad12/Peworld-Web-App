@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import Link from "next/link";
 
 function Header() {   
   return (
@@ -12,8 +13,8 @@ function Header() {
           <img className="px-[15px] md:px-[1px]" src="/logo_grape.png" alt="logo" style={{height:"35px", width:"127px"}}/>
           
           <div className="invisible md:visible flex gap-3">
-            <button className="p-1 rounded border-4 btn-signin w-1/8">Masuk</button>
-            <button className="p-1 rounded border-4 btn-signup w-1/8">Daftar</button>
+            <Link href={'/login'}><button className="p-1 rounded border-4 btn-signin w-1/8">Masuk</button></Link>
+            <Link href={'/signup'}><button className="p-1 rounded border-4 btn-signup w-1/8">Daftar</button></Link>
           </div>
 
           <div className="md:hidden mx-10">
