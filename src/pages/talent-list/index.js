@@ -65,7 +65,7 @@ function Talent(props) {
             />
 
             <img
-              src="/line 2.png"
+              src="/Line 2.png"
               alt="search"
               className="absolute mx-[55%]  md:mx-[84%] p-1 h-[50px]"
             />

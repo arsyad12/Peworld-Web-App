@@ -2,26 +2,85 @@
 import React from "react";
 import Link from "next/link";
 
-function Header() {   
+function Header() {
+  const [isNavOpen, setIsNavOpen] = React.useState(false); // initiate isNavOpen state with false
+
   return (
     <>
       {/* header */}
 
       <header className="container mx-auto mt-6 ">
         <nav className="flex justify-between drop-shadow-md">
-          
-          <img className="px-[15px] md:px-[1px]" src="/logo_grape.png" alt="logo" style={{height:"35px", width:"127px"}}/>
-          
+          <img
+            className="px-[15px] md:px-[1px]"
+            src="/logo_grape.png"
+            alt="logo"
+            style={{ height: "35px", width: "127px" }}
+          />
+
           <div className="invisible md:visible flex gap-3">
-            <Link href={'/login'}><button className="p-1 rounded border-4 btn-signin w-1/8">Masuk</button></Link>
-            <Link href={'/signup'}><button className="p-1 rounded border-4 btn-signup w-1/8">Daftar</button></Link>
+            <Link href={"/login"}>
+              <button className="p-1 rounded border-4 btn-signin w-1/8">
+                Masuk
+              </button>
+            </Link>
+            <Link href={"/signup"}>
+              <button className="p-1 rounded border-4 btn-signup w-1/8">
+                Daftar
+              </button>
+            </Link>
           </div>
 
-          <div className="md:hidden mx-10">
-            <button>
-              <img className="" src="/ham.png" alt="burger"  style={{height:"35px", width:"35px"}}/>
-            </button>
-          </div>
+          <section className="MOBILE-MENU flex md:hidden">
+            <div
+              className="HAMBURGER-ICON h-[50px] w-[50px] pr-4"
+              onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+            >
+              <img src="/ham.png" alt="" />
+            </div>
+
+            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+              <div
+                className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+                onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
+              >
+                <svg
+                  className="h-8 w-8 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </div>
+              <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
+                <li className="border-b border-gray-400 my-8 uppercase">
+                  <Link href={"/"}>
+                    <p className="p-1 rounded w-1/8">Home</p>
+                  </Link>
+                </li>
+                <li className="border-b border-gray-400 my-8 uppercase">
+                  <Link href={"/login"}>
+                    <p className="p-1 rounded w-1/8">Masuk</p>
+                  </Link>
+                </li>
+                <li className="border-b border-gray-400 my-8 uppercase">
+                  <Link href={"/signup"}>
+                    <p className="p-1 rounded w-1/8">Daftar</p>
+                  </Link>
+                </li>
+                <li className="border-b border-gray-400 my-8 uppercase">
+                  <Link href={"/talent-list"}>
+                    <p className="p-1 rounded w-1/8">List Talent</p>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </section>
         </nav>
       </header>
       {/* header */}

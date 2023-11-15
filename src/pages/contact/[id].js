@@ -44,7 +44,7 @@ function contact() {
                   </p>
                 </div>
 
-                <div className="mt-[10px] md:flex md:justify-center md:flex-wrap">
+                <div className="mt-[20px] md:flex md:justify-center md:flex-wrap">
                     {['Javascript', "Tailwind",'SCSS','React JS','Next Js','React Native','React JS','Next Js'].map((item,key) => (
                   <button key={key} className="border border-2 bg-[#FBB017] border-[#FBB01799] text-[white] p-2 mx-1 mb-2">
                     {item}
