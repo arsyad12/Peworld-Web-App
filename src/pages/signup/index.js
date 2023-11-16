@@ -4,24 +4,24 @@ import React from "react";
 function signup() {
   return (
     <>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         {/* section image left */}
 
         <div className="col-1">
           <div>
-            <div className="absolute bg-[#5E50A1] w-[100vh] h-[100vh] opacity-[.67]" />{" "}
+            <div className="absolute bg-[#5E50A1] w-[127%] h-[100vh] md:w-[100vh] md:h-[100vh]  opacity-[.67]" />{" "}
             {/*overlay*/}
             <div className="absolute p-[20px]">
               <img src="/logo_white.png" alt="img-login" />
             </div>
             
-            <div className="absolute inset-0 flex justify-center items-center text-[40px] w-[40%]  p-[30px] text-[white]">
+            <div className="absolute inset-0 flex justify-center items-center text-[27px] md:text-[40px] w-[100%] md:w-[40%]  p-[30px] text-[white] mx-[30px] md:mx-[0px]">
               <p>
                 Temukan developer berbakat & terbaik di berbagai bidang keahlian
               </p>
             </div>
 
-            <div>
+            <div className="w-[127%] h-[100vh] md:w-[100vh] md:h-[100vh] ">
               <img
                 className="w-[100vh] h-[100vh] object-cover"
                 src="/loginimg.png"
@@ -32,7 +32,7 @@ function signup() {
         </div>
 
         {/* section form */}
-        <div className="container flex items-center  ">
+        <div className="container flex items-center mx-[50px] md:mx-[0px] ">
           <div className="grid w-[570px]">
             
             <div className="mt-6">
