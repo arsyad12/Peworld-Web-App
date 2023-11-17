@@ -9,7 +9,7 @@ function Header() {
     <>
       {/* header */}
 
-      <header className="container mx-auto mt-6 ">
+      <header className="container mx-auto mt-6  ">
         <nav className="flex justify-between drop-shadow-md">
           <img
             className="px-[15px] md:px-[1px]"
@@ -31,21 +31,21 @@ function Header() {
             </Link>
           </div>
 
-          <section className="MOBILE-MENU flex md:hidden">
+          <section className="MOBILE-MENU flex md:hidden ">
             <div
               className="HAMBURGER-ICON h-[50px] w-[50px] pr-4"
-              onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+              onClick={() => setIsNavOpen((isFalse) => !isFalse)} // toggle isNavOpen state on click
             >
               <img src="/ham.png" alt="" />
             </div>
 
             <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
               <div
-                className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+                className="CROSS-ICON absolute top-0 right-0 px-4 py-1"
                 onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
               >
                 <svg
-                  className="h-8 w-8 text-gray-600"
+                  className="h-8 w-8 text-[#5E50A1]"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -57,28 +57,28 @@ function Header() {
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </div>
-              <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-                <li className="border-b border-gray-400 my-8 uppercase">
+              <div className="container ">
+                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/"}>
-                    <p className="p-1 rounded w-1/8">Home</p>
+                    <p>HOME</p>
                   </Link>
-                </li>
-                <li className="border-b border-gray-400 my-8 uppercase">
+                </div>
+                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/login"}>
-                    <p className="p-1 rounded w-1/8">Masuk</p>
+                    <p>Signin</p>
                   </Link>
-                </li>
-                <li className="border-b border-gray-400 my-8 uppercase">
+                </div>
+                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/signup"}>
-                    <p className="p-1 rounded w-1/8">Daftar</p>
+                    <p>Signup</p>
                   </Link>
-                </li>
-                <li className="border-b border-gray-400 my-8 uppercase">
+                </div>
+                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/talent-list"}>
-                    <p className="p-1 rounded w-1/8">List Talent</p>
+                    <p>Talent List</p>
                   </Link>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </section>
         </nav>

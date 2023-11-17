@@ -40,7 +40,7 @@ function Talent(props) {
 
       <div className="bg-[#F6F7F8]">
         {/* Head */}
-        <div className="flex items-center mt-5 bg-[#5E50A1] h-[80px]  ">
+        <div className="flex items-center mt-5 bg-[#5E50A1] h-[80px]">
           <h5 className="text-[white] text-[20px] mx-10 ">
             Top Talent | Peworlds
           </h5>
@@ -49,7 +49,8 @@ function Talent(props) {
         {/* end of head */}
 
         {/* search bar */}
-        <div className="m-10 search-bar">
+
+        <div className="m-10 search-bar ">
           <div className="container flex">
             <input
               className="w-full border drop-shadow-md p-3 rounded-[5px]"
@@ -81,7 +82,7 @@ function Talent(props) {
 
         {/* card */}
         <div className="m-10 card-talent">
-          <div className="container">
+          <div className="container ">
             {listData.filter((item) => (item.fullname.includes(searchBar))).map((item, key) => (
               <div key={key} className="border bg-[white] drop-shadow-md">
                 <div className="grid grid-cols-1 md:grid-cols-8">
