@@ -2,8 +2,13 @@
 import React from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import axios from "axios";
 
-function contact() {
+function Contact(props) {
+  console.log(props)
+  
+  const{data} = props
+
   return (
     <>
         <Header />
@@ -18,24 +23,24 @@ function contact() {
                 <div className="flex items-center justify-center">
                   <img src="/Ellipse 326.png" alt="photo" />
                 </div>
-                <div className="mt-[10px] text-[20px]">
-                  <p>Louis Thompson</p>
+                <div className="mt-[10px] text-[20px] text-center">
+                  <p>{data.fullname}</p>
                 </div>
-                <div className="mt-[10px] text-[14px]">
+                <div className="mt-[10px] text-[12px] text-justify mb-[10px]">
                   <p>
                     Senior Developer dengan Pengalaman lebih dari 15tahun dalam
                     development sebuah web dan software
                   </p>
                 </div>
                 <div className="mt-[10px] flex gap-2">
-                  <div className="pt-[1px]">
+                  <div className=" mt-[10px] mb-[10px]">
                     <img src="/map.png" alt="map" />
                   </div>
-                  <div className="text-[14px]">
-                    <p>Jakarta Raya, Daerah Kebayoran Baru</p>
+                  <div className="text-[12px] text-[grey] mt-[10px] mb-[10px]">
+                    <p>{data.location}</p>
                   </div>
                 </div>
-                <div className="mt-[10px] text-[14px]">
+                <div className="mt-[10px] text-[12px] text-[grey] text-justify">
                   <p>
                     Dengan Kemaampuan yang saya miliki akan sangat membantu saya
                     dalam menemukan problem solving di perusahaan anda dan
@@ -45,7 +50,7 @@ function contact() {
                 </div>
 
                 <div className="mt-[20px] md:flex md:justify-center md:flex-wrap">
-                    {['Javascript', "Tailwind",'SCSS','React JS','Next Js','React Native','React JS','Next Js'].map((item,key) => (
+                    {data.skill.map((item,key) => (
                   <button key={key} className="border border-2 bg-[#FBB017] border-[#FBB01799] text-[white] p-2 mx-1 mb-2">
                     {item}
                   </button>
@@ -59,7 +64,7 @@ function contact() {
           <div className="col-span-8 w-full md:m-10 bg-[]">
            {/* section form */}
         <div className="container flex justify-center md:justify-start items-center  ">
-          <div className="grid w-[80%] md:w-[400px]">
+          <div className="grid w-[80%] md:w-[800px]">
             
             <div className="subhead">
               <p className="text-[30px] mb-[20px]">Halo, Pewpeople</p>
@@ -118,11 +123,11 @@ function contact() {
             />
 
             <label for="basic-url" className="form-label text-[12px] py-2">
-              Password
+              Message
             </label>
-            <input
-              type="password"
-              placeholder="Password"
+            <textarea
+              type="text"
+              placeholder="Type Your Message"
               className="border border-[#E2E5ED] p-2"
             />
             
@@ -150,4 +155,18 @@ function contact() {
   );
 }
 
-export default contact;
+export async function getServerSideProps(props) {
+  //di next js req data berdasarkan parameter dipanggil dengan props bukan dengan (req,res)
+  // destrukturing variabel bernama id kemudia isi dengan nilai dari parameter props
+  const { id } = props.params;
+  console.log(id); //harusnya hasilnya 1
+  const request = await axios({
+    method: "get",
+    url: `http://localhost:3000/api/listTalent?id=${id}`, //kemudain request ambil data yang parameter id nya sama dengan id dari props.params
+  });
+
+  return { props: request.data };
+}
+
+
+export default Contact;

@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,9 +30,11 @@ export default function Home() {
               web, kamu berkesempatan untuk menemukan talent yang dilatih
               langsung dengan mentor yang kompeten di bidangnya.
             </p>
+            <Link href={'/talent-list'}>
             <button class="p-2 rounded border-4 mt-10 btn-start mb-10">
               Mulai Dari Sekarang
             </button>
+            </Link>
           </div>
           <div className="">
             <img className="" src="/firstpic.png" alt="logo" />
@@ -111,9 +114,11 @@ export default function Home() {
             <p>Menuju Tak Terbatas dan Melampauinya</p>
           </div>
           <div className="grid mt-5 md:grid-cols-1 md:justify-items-end">
+          <Link href={'/talent-list'}>
             <button className="border-4 p-2 btn-cta">
               Mulai Dari Sekarang
             </button>
+            </Link>
           </div>
         </div>
       </div>

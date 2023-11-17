@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Head from "next/head";
 import axios from "axios";
+import Router from "next/router";
 function Detail(props) {
   const { data } = props;
   console.log(data);
@@ -52,9 +53,11 @@ function Detail(props) {
             </div>
 
             <div className="mt-6 grid grid-col-1 justify-center">
-              <button className="border border-4 border-[#5E50A1] bg-[#5E50A1] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]">
+              
+              <button onClick={()=>(Router.push(`/talent-list/contact/${data.id}`))} className="border border-4 border-[#5E50A1] bg-[#5E50A1] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]">
                 HIRE
               </button>
+              
             </div>
 
             <div className="mt-6 grid grid-col-2 justify-center">

@@ -7,7 +7,7 @@ const lisTalent = [
     fullname: "Arsyad Basofil Amri",
     role: "Fullstack Developer",
     location: "Pekanbaru",
-    skill: ["Javascript", "React Js", "Next Js","tailwind"],
+    skill: ["Javascript", "React Js", "Next Js","tailwind","React Native"],
   },
   {
     id: 2,
