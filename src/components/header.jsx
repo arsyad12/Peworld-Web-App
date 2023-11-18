@@ -3,19 +3,29 @@ import React from "react";
 import Link from "next/link";
 import { getCookie } from "cookies-next";
 
+
 function Header() {
   const [isNavOpen, setIsNavOpen] = React.useState(false); // initiate isNavOpen state with false
 
-  const user = getCookie("user") ? JSON.parse(getCookie("user")) : null;
+   const [user,setUser] = React.useState({})
 
   console.log(user);
 
-  return (
-    <>
-      {/* header */}
+  React.useEffect(()=>{
 
-      <header className="container mx-auto mt-6  ">
-        <nav className="flex justify-between drop-shadow-md">
+    if (getCookie("user")) {
+
+      setUser(JSON.parse(getCookie("user")))
+      
+    }
+
+  },[])
+  
+  return (
+    <> 
+      {/* header */}
+      <nav className="container mx-auto mt-6  ">
+        <header className="flex justify-between drop-shadow-md">
           <img
             className="px-[15px] md:px-[1px]"
             src="/logo_grape.png"
@@ -23,7 +33,12 @@ function Header() {
             style={{ height: "35px", width: "127px" }}
           />
           {user ? (
-            <div className="border h-[50px] w-[50px] rounded-full"><img src={user.dataValues.photo} alt="" srcset="" /></div>
+           <img
+              src={user.photo}
+              alt="profile"
+              className="border h-[40px] w-[40px] rounded-full invisible md:visible"
+            />
+
           ) : (
             <div className="invisible md:visible flex gap-3">
               <Link href={"/login"}>
@@ -38,12 +53,16 @@ function Header() {
               </Link>
             </div>
           )}
-          <section className="MOBILE-MENU flex md:hidden ">
+          <div className="MOBILE-MENU flex md:hidden ">
             <div
               className="HAMBURGER-ICON h-[50px] w-[50px] pr-4"
               onClick={() => setIsNavOpen((isFalse) => !isFalse)} // toggle isNavOpen state on click
             >
-              <img src="/ham.png" alt="" />
+              {user ? (
+                <img src={user.photo} alt="" className="border h-[35px] w-[45px] rounded-full" />
+              ) : (
+                <img src="/ham.png" alt="" />
+              )}
             </div>
 
             <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
@@ -87,9 +106,9 @@ function Header() {
                 </div>
               </div>
             </div>
-          </section>
-        </nav>
-      </header>
+          </div>
+        </header>
+      </nav>
       {/* header */}
     </>
   );

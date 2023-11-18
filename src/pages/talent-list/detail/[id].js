@@ -5,8 +5,15 @@ import Footer from "@/components/footer";
 import Head from "next/head";
 import axios from "axios";
 import Router from "next/router";
+import { getCookie } from "cookies-next";
+
 function Detail(props) {
   const { data } = props;
+
+  const user = getCookie("user") ? JSON.parse(getCookie("user")) : null;
+
+  console.log(user);
+
   console.log(data);
   return (
     <>
@@ -53,11 +60,21 @@ function Detail(props) {
             </div>
 
             <div className="mt-6 grid grid-col-1 justify-center">
-              
-              <button onClick={()=>(Router.push(`/talent-list/contact/${data.id}`))} className="border border-4 border-[#5E50A1] bg-[#5E50A1] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]">
-                HIRE
-              </button>
-              
+              {user? (
+                <button
+                  onClick={() => Router.push(`/talent-list/contact/${data.id}`)}
+                  className="border border-4 border-[#5E50A1] bg-[#5E50A1] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]"
+                >
+                  HIRE
+                </button>
+              ) : (
+                <button
+                  onClick={() => Router.push(`/talent-list/contact/${data.id}`)}
+                  className="border border-4 border-[grey] bg-[grey] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]"
+                >
+                  LOGIN FIRST FOR HIRE
+                </button>
+              )}
             </div>
 
             <div className="mt-6 grid grid-col-2 justify-center">
@@ -82,8 +99,6 @@ function Detail(props) {
         </div>
         <Footer />
       </div>
-
-      
     </>
   );
 }

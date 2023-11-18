@@ -20,8 +20,9 @@ function login() {
       })
       .then((res) => {
         console.log(res);
-        setCookie("token", res?.data?.data?.token);
-        setCookie("user", JSON.stringify(res?.data?.data?.user));
+        setCookie("token", res?.data?.data?.token, {maxAge: 60 * 6 * 24});
+        //max age adalah parameter tambahan untuk memberikan expired pada data di cookies ini adalah contoh masa ekspire 1 hari
+        setCookie("user", JSON.stringify(res?.data?.data?.user, {maxAge: 60 * 6 * 24}));
         window.location.href = "/"
         setLoginSucces(true)
       })
@@ -139,4 +140,27 @@ function login() {
   );
 }
 
+
+export async function getServerSideProps({req,res}) { //check cookies dari ssr dan melarang user ke halaman login jika sudah ada data di cookie
+
+const user = getCookie('user', {req,res})
+const token = getCookie('token', {req,res})
+
+console.log(user)
+console.log(token)
+
+if (user&&token) {
+
+  return {
+    redirect: {
+      permanent: false,
+      destination: "/"
+    }
+  }
+  
+}
+
+
+  return { props: {}};
+}
 export default login;
