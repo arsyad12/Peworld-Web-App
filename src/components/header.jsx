@@ -1,9 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
+import { getCookie } from "cookies-next";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = React.useState(false); // initiate isNavOpen state with false
+
+  const user = getCookie("user") ? JSON.parse(getCookie("user")) : null;
+
+  console.log(user);
 
   return (
     <>
@@ -17,20 +22,22 @@ function Header() {
             alt="logo"
             style={{ height: "35px", width: "127px" }}
           />
-
-          <div className="invisible md:visible flex gap-3">
-            <Link href={"/login"}>
-              <button className="p-1 rounded border-4 btn-signin w-1/8">
-                Masuk
-              </button>
-            </Link>
-            <Link href={"/signup"}>
-              <button className="p-1 rounded border-4 btn-signup w-1/8">
-                Daftar
-              </button>
-            </Link>
-          </div>
-
+          {user ? (
+            <div className="border h-[50px] w-[50px] rounded-full"><img src={user.dataValues.photo} alt="" srcset="" /></div>
+          ) : (
+            <div className="invisible md:visible flex gap-3">
+              <Link href={"/login"}>
+                <button className="p-1 rounded border-4 btn-signin w-1/8">
+                  Masuk
+                </button>
+              </Link>
+              <Link href={"/signup"}>
+                <button className="p-1 rounded border-4 btn-signup w-1/8">
+                  Daftar
+                </button>
+              </Link>
+            </div>
+          )}
           <section className="MOBILE-MENU flex md:hidden ">
             <div
               className="HAMBURGER-ICON h-[50px] w-[50px] pr-4"
