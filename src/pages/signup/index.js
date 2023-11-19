@@ -10,10 +10,12 @@ function signup() {
   const [company, setCompany] = React.useState("");
   const [job, setJob] = React.useState("");
   const [phone, setPhone] = React.useState("");
-  const [errMessage,setErrMessage] = React.useState(null)
-
+  const [errMessage, setErrMessage] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [regSucces, setRegSuccess] = React.useState(null);
 
   const registerHandler = () => {
+    setLoading(true);
     axios({
       method: "post",
       url: `https://hire-job.onrender.com/v1/auth/register`,
@@ -28,19 +30,23 @@ function signup() {
     })
       .then((result) => {
         console.log(result);
+
+        setRegSuccess(true);
       })
       .catch((err) => {
         console.log(err);
 
-        const errFullname = err?.response?.data?.messages?.fullname?.message
-        const errEmail = err?.response?.data?.messages?.email?.message
-        const errPassword = err?.response?.data?.messages?.password?.message
-        const errPhone = err?.response?.data?.messages?.phone?.message
+        const errFullname = err?.response?.data?.messages?.fullname?.message;
+        const errEmail = err?.response?.data?.messages?.email?.message;
+        const errPassword = err?.response?.data?.messages?.password?.message;
+        const errPhone = err?.response?.data?.messages?.phone?.message;
 
-        setErrMessage(errFullname??errEmail??errPassword??errPhone)
-
+        setErrMessage(errFullname ?? errEmail ?? errPassword ?? errPhone);
       })
-    };
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <>
@@ -56,8 +62,7 @@ function signup() {
             </div>
             <div className="absolute inset-0 flex justify-center items-center text-[27px] md:text-[40px] w-[100%] md:w-[40%]  p-[30px] text-[white] mx-[30px] md:mx-[0px]">
               <p>
-                Temukan developer berbakat & terbaik di berbagai
-                bidang keahlian
+                Temukan developer berbakat & terbaik di berbagai bidang keahlian
               </p>
             </div>
             <div className="w-[127%] h-[100vh] md:w-[100vh] md:h-[100vh] ">
@@ -76,16 +81,24 @@ function signup() {
             <div className="mt-6">
               <p className="text-[30px] mb-[20px]">Halo, Pewpeople</p>
               <p className="text-[14px] text-[#46505C] mb-[20px]">
-                Passtikan data yang digunakan untuk registrasi adalah data yang valid
+                Passtikan data yang digunakan untuk registrasi adalah data yang
+                valid
               </p>
             </div>
 
-          {errMessage ? (
-          <div className="border border-2 border-[#ffc720] bg-[#ffc720] mt-2 mb-2">
-            <p>{errMessage}</p>
-          </div>
-          ) : null}
+            {errMessage ? (
+              <div className="border border-2 border-[#ffc720] rounded-[5px] bg-[#ffc720] mt-2 mb-2">
+                <p className="p-2">{errMessage}</p>
+              </div>
+            ) : (
+              false
+            )}
 
+            {regSucces ? (
+              <div className="border border-2 border-[#0dcaf0] rounded-[5px] bg-[#0dcaf0] mt-2 mb-2">
+                <p className="p-2">Register Succes</p>
+              </div>
+            ) : null}
 
             <label for="basic-url" className="form-label text-[12px] py-2">
               Full Name
@@ -152,10 +165,15 @@ function signup() {
             </div>
 
             <button
-              className="border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
+              className={
+                loading
+                  ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px]"
+                  : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
+              }
               onClick={() => registerHandler()}
+              disabled={loading}
             >
-              Masuk
+              {loading ? "Loading..." : "Masuk"}
             </button>
 
             <div className="flex justify-center gap-2 mt-[10px] mb-6">
