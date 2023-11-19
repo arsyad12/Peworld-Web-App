@@ -8,6 +8,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js","tailwind","React Native"],
+    socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 8,
@@ -64,6 +71,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 9,
@@ -72,6 +80,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
   {
     id: 10,
@@ -80,6 +89,7 @@ const lisTalent = [
     role: "Fullstack Developer",
     location: "Pekanbaru",
     skill: ["Javascript", "React Js", "Next Js"],
+     socmed:{email:"arsyadbasofilamrii@gmail.com"}
   },
 ];
 

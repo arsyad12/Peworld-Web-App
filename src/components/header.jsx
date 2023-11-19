@@ -3,26 +3,28 @@ import React from "react";
 import Link from "next/link";
 import { getCookie } from "cookies-next";
 
-
 function Header() {
   const [isNavOpen, setIsNavOpen] = React.useState(false); // initiate isNavOpen state with false
 
-   const [user,setUser] = React.useState({})
+  //cara ambil data dari cookie agar tidak hydrating component
+  //harus dibikin state dulu dan ditampung datanya kedalam state
 
-  console.log(user);
+  const [user, setUser] = React.useState(null); //defaultnya adalah null
 
-  React.useEffect(()=>{
+  // console.log(user);
 
+  React.useEffect(() => {
     if (getCookie("user")) {
+      //kalau get cookie user berhasil dan ada datanya
 
-      setUser(JSON.parse(getCookie("user")))
-      
+      setUser(JSON.parse(getCookie("user")));
+      //set nilai user dengan data yang dijadikan json
+      //karena didalam cookie data yang kita punya bentuknya adalah string
     }
+  }, []);
 
-  },[])
-  
   return (
-    <> 
+    <>
       {/* header */}
       <nav className="container mx-auto mt-6  ">
         <header className="flex justify-between drop-shadow-md">
@@ -33,12 +35,11 @@ function Header() {
             style={{ height: "35px", width: "127px" }}
           />
           {user ? (
-           <img
+            <img
               src={user.photo}
-              alt="profile"
+              alt="sss"
               className="border h-[40px] w-[40px] rounded-full invisible md:visible"
             />
-
           ) : (
             <div className="invisible md:visible flex gap-3">
               <Link href={"/login"}>
@@ -59,7 +60,11 @@ function Header() {
               onClick={() => setIsNavOpen((isFalse) => !isFalse)} // toggle isNavOpen state on click
             >
               {user ? (
-                <img src={user.photo} alt="" className="border h-[35px] w-[45px] rounded-full" />
+                <img
+                  src={user.photo}
+                  alt=""
+                  className="border h-[35px] w-[45px] rounded-full"
+                />
               ) : (
                 <img src="/ham.png" alt="" />
               )}

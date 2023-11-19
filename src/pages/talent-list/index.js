@@ -5,20 +5,26 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Head from "next/head";
 import axios, { all } from "axios";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { Aldrich } from "next/font/google";
 
 function Talent(props) {
-  const [listData, setListData] = React.useState(props.data.slice(0, 4)); 
 
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const router = useRouter()
+
+  const [listData, setListData] = React.useState([]); 
+
+  const [currentPage, setCurrentPage] = React.useState(parseInt(router?.query?.page ?? 1));
 
   const countData = Math.round(props?.data?.length / 4);
 
   const [searchBar, setSearchBar] = React.useState("");
 
   const handlePagination = (nextPage) => {
+    
     setCurrentPage(nextPage);
+
+    router.push(`/talent-list?page=${nextPage}`)
 
     if (nextPage > 1) {
       setListData(props?.data?.slice(4 * (nextPage - 1), 4 * nextPage));
@@ -26,6 +32,11 @@ function Talent(props) {
       setListData(props?.data?.slice(0, 4));
     }
   };
+
+  React.useEffect(()=>{
+    handlePagination(currentPage)
+  },[])
+
 
   // console.log(currentPage)
   // console.log(listData);
@@ -121,7 +132,7 @@ function Talent(props) {
                   <div className="identity col-span-2 flex items-center flex justify-center md:justify-start mb-[20px]">
                     <button
                       onClick={() =>
-                        Router.push(`/talent-list/detail/${item.id}`)
+                        router.push(`/talent-list/detail/${item.id}`)
                       }
                       className="border-2 p-[2px] bg-[#5E50A1] w-1/2 text-[white] rounded-[4px] border-[#5E50A1] mt-[5px] md:mt-[20px]"
                     >

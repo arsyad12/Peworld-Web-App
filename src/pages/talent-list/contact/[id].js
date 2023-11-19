@@ -5,9 +5,38 @@ import Footer from "@/components/footer";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 function Contact(props) {
-  console.log(props);
-
+  // console.log(props);
   const { data } = props;
+
+  const token = getCookie("token");
+  // console.log(token)
+
+  // const [user,setUser] = React.useState(getCookie("user"))
+  const [sender, setSender] = React.useState("");
+  const [subject, setSubject] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const handleMessage = () => {
+    axios
+      .post(
+        `https://hire-job.onrender.com/v1/contact`,
+        {
+          to: data.socmed.email,
+          toName: data.fullname,
+          sender: sender,
+          subject: subject,
+          description: message,
+        },
+        {headers : {Authorization:`Bearer ${token}`}}
+        )
+
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <>
@@ -73,48 +102,23 @@ function Contact(props) {
                 </div>
 
                 <label for="basic-url" className="form-label text-[12px] py-2">
-                  Full Name
+                  Sender
                 </label>
                 <input
                   type="text"
-                  placeholder="Username"
+                  placeholder="Fill with your email"
                   className="border border-[#E2E5ED] p-2"
+                  onChange={(item) => setSender(item.target.value)}
                 />
 
                 <label for="basic-url" className="form-label text-[12px] py-2">
-                  Role
+                  Subject
                 </label>
                 <input
                   type="text"
-                  placeholder="Username"
+                  placeholder="Fill the subject"
                   className="border border-[#E2E5ED] p-2"
-                />
-
-                <label for="basic-url" className="form-label text-[12px] py-2">
-                  Skill
-                </label>
-                <input
-                  type="text"
-                  placeholder="Username"
-                  className="border border-[#E2E5ED] p-2"
-                />
-
-                <label for="basic-url" className="form-label text-[12px] py-2">
-                  Address
-                </label>
-                <input
-                  type="text"
-                  placeholder="Username"
-                  className="border border-[#E2E5ED] p-2"
-                />
-
-                <label for="basic-url" className="form-label text-[12px] py-2">
-                  Email
-                </label>
-                <input
-                  type="text"
-                  placeholder="Username"
-                  className="border border-[#E2E5ED] p-2"
+                  onChange={(item) => setSubject(item.target.value)}
                 />
 
                 <label for="basic-url" className="form-label text-[12px] py-2">
@@ -124,14 +128,18 @@ function Contact(props) {
                   type="text"
                   placeholder="Type Your Message"
                   className="border border-[#E2E5ED] p-2"
+                  onChange={(item) => setMessage(item.target.value)}
                 />
 
                 <div className="flex justify-end mt-[10px]">
                   <p>Lupa kata sandi?</p>
                 </div>
 
-                <button className="border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]">
-                  Masuk
+                <button
+                  className="border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
+                  onClick={(()=>handleMessage())}
+                >
+                  Send Messages
                 </button>
 
                 <div className="flex justify-center gap-2 mt-[10px] mb-6">
@@ -149,9 +157,11 @@ function Contact(props) {
 }
 
 export async function getServerSideProps({ req, res, params }) {
+  // cara mengambil data dari cookies lewat serverside, harus ada {req,res}
+  // di next js req data berdasarkan parameter dipanggil dengan props/params bukan dengan (req,res)
+  // destrukturing variabel bernama id kemudia isi dengan nilai dari parameter params/props
+  // karena kita mau memastikan data login terlebih dahulu jadi susunan parameter nya adalah req, res, params
 
-    //di next js req data berdasarkan parameter dipanggil dengan props bukan dengan (req,res)
-  // destrukturing variabel bernama id kemudia isi dengan nilai dari parameter props
   const { id } = params;
   console.log(id); //harusnya hasilnya 1
 
