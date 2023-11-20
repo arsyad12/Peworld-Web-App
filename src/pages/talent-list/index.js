@@ -49,7 +49,7 @@ function Talent(props) {
 
       <Header />
 
-      <div className="bg-[#F6F7F8]">
+      <div className="bg-[#F6F7F8] absolute z-[-9999] mt-4">
         {/* Head */}
         <div className="flex items-center mt-5 bg-[#5E50A1] h-[80px]">
           <h5 className="text-[white] text-[20px] mx-10 ">
@@ -59,9 +59,9 @@ function Talent(props) {
 
         {/* end of head */}
 
-        {/* search bar */}
+        {/* search bar */} 
 
-        <div className="m-10 search-bar ">
+        <div className="m-10 search-bar relative z-[-9999]">
           <div className="container flex">
             <input
               className="w-full border drop-shadow-md p-3 rounded-[5px]"
@@ -73,16 +73,16 @@ function Talent(props) {
             <img
               src="/search.png"
               alt="search"
-              className="absolute p-3 mx-[43%] md:mx-[80%]"
+              className="absolute p-3 mx-[55%] md:mx-[83%]"
             />
 
             <img
               src="/Line 2.png"
               alt="search"
-              className="absolute mx-[55%]  md:mx-[84%] p-1 h-[50px]"
+              className="absolute mx-[70%]  md:mx-[88%] p-1 h-[50px]"
             />
 
-            <div className="absolute p-2 mx-[60%] md:mx-[85%]">
+            <div className="absolute p-2 mx-[75%] md:mx-[90%]">
               <button className=" border-4 border-[#5E50A1] bg-[#5E50A1] text-[#FFFFFF] rounded-[5px] p-[2px] w-[60px] md:w-[100px]">
                 Search
               </button>
