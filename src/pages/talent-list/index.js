@@ -190,6 +190,7 @@ function Talent(props) {
 }
 
 export async function getServerSideProps() {
+  console.log(process.env.BASE_URL)
   const request = await axios({
     method: "get",
     url: `${process.env.BASE_URL}/api/listTalent`,
