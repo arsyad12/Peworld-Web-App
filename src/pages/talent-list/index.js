@@ -192,7 +192,7 @@ function Talent(props) {
 export async function getServerSideProps() {
   const request = await axios({
     method: "get",
-    url: "http://localhost:3000/api/listTalent",
+    url: `${process.env.BASE_URL}/api/listTalent`,
   });
 
   return { props: request.data };
