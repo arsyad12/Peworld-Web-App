@@ -32,8 +32,9 @@ function Header() {
   return (
     <>
       {/* header */}
-      <nav className="container mx-auto mt-6  ">
-        <header className="flex justify-between drop-shadow-md">
+      <div className="shadows shadow-lg">
+      <nav className="container mx-auto mt-6 pb-4 ">
+        <header className="flex justify-between">
           <Link href={"/"}>
           <img
             className="px-[15px] md:px-[1px]"
@@ -150,6 +151,7 @@ function Header() {
           </div>
         </header>
       </nav>
+      </div>
       {/* header */}
     </>
   );

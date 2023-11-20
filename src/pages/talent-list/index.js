@@ -49,7 +49,7 @@ function Talent(props) {
 
       <Header />
 
-      <div className="bg-[#F6F7F8] absolute z-[-9999] mt-4">
+      <div className="bg-[#F6F7F8] absolute z-[-9999] ">
         {/* Head */}
         <div className="flex items-center mt-5 bg-[#5E50A1] h-[80px]">
           <h5 className="text-[white] text-[20px] mx-10 ">
