@@ -53,10 +53,9 @@ function signup() {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* section image left */}
-
         <div className="col-1">
           <div>
-            <div className="absolute bg-[#5E50A1] w-[127%] h-[100vh] md:w-[100vh] md:h-[100vh]  opacity-[.67]" />{" "}
+            <div className="absolute bg-[#5E50A1] w-[127%] h-[100vh] md:w-[100vh] md:h-[115vh]  opacity-[.67]" />{" "}
             {/*overlay*/}
             <div className="absolute p-[20px]">
               <img src="/logo_white.png" alt="img-login" />
@@ -68,7 +67,7 @@ function signup() {
             </div>
             <div className="w-[127%] h-[100vh] md:w-[100vh] md:h-[100vh] ">
               <img
-                className="w-[100vh] h-[100vh] object-cover"
+                className="w-[100vh] h-[100vh] md:h-[115vh] object-cover"
                 src="/loginimg.png"
                 alt="img-login"
               />
@@ -164,8 +163,8 @@ function signup() {
             <button
               className={
                 loading
-                  ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px] mb-[30px] mt-[30px]"
-                  : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px] mb-[30px] mt-[30px]"
+                  ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px] mb-[10px] mt-[30px]"
+                  : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px] mb-[10px] mt-[30px]"
               }
               onClick={() => registerHandler()}
               disabled={loading}

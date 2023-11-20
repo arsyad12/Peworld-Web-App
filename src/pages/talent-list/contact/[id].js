@@ -94,9 +94,9 @@ function Contact(props) {
             </div>
           </div>
 
-          <div className="col-span-8 w-full md:m-10 bg-[]">
+          <div className="col-span-8 md:m-10">
             {/* section form */}
-            <div className="container flex justify-center md:justify-start items-center  ">
+            <div className="container flex justify-center md:justify-start items-center">
               <div className="grid w-[80%] md:w-[800px]">
                 <div className="subhead">
                   <p className="text-[30px] mb-[20px]">Halo, Pewpeople</p>
