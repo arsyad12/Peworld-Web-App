@@ -117,11 +117,11 @@ function Talent(props) {
                       <p className="text-[14px]">{item.location}</p>
                     </div>
 
-                    <div className="flex justify-center md:justify-start gap-2 md:gap-3  m-2">
+                    <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 mt-[15px] md:mt-[0px]">
                       {item.skill.map((item, key) => (
                         <button
                           key={key}
-                          className="border-2  bg-[#FBB01799] w-[120px] mt-[15px] md:mt-[5px] mb-[10px] rounded-[4px] border-[#FBB01799]"
+                          className="border-2 bg-[#FBB01799] w-[120px] mt-[0px]  md:mt-[15px] md:mt-[5px] mb-[10px] rounded-[4px] border-[#FBB01799]"
                         >
                           {item}
                         </button>

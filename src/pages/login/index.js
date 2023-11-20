@@ -3,13 +3,15 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { getCookie, setCookie } from "cookies-next";
+import Router from "next/router";
 
 function login() {
+  const router = Router
   const [emails, setEmail] = React.useState("");
   const [passwords, setPassword] = React.useState("");
   const [isLoading, setIsloading] = React.useState(false);
   const [errMessage, setErrMessage] = React.useState("");
-  const [loginSucces, setLoginSucces] = React.useState(false)
+  const [loginSucces, setLoginSucces] = React.useState(false);
 
   const handleLogin = () => {
     setIsloading(true);
@@ -20,11 +22,14 @@ function login() {
       })
       .then((res) => {
         console.log(res);
-        setCookie("token", res?.data?.data?.token, {maxAge: 60 * 6 * 24});
+        setCookie("token", res?.data?.data?.token, { maxAge: 60 * 6 * 24 });
         //max age adalah parameter tambahan untuk memberikan expired pada data di cookies ini adalah contoh masa ekspire 1 hari
-        setCookie("user", JSON.stringify(res?.data?.data?.user, {maxAge: 60 * 6 * 24}));
-        window.location.href = "/"
-        setLoginSucces(true)
+        setCookie(
+          "user",
+          JSON.stringify(res?.data?.data?.user, { maxAge: 60 * 6 * 24 })
+        );
+        window.location.href = "/";
+        setLoginSucces(true);
       })
       .catch((err) => {
         console.error(err);
@@ -79,6 +84,7 @@ function login() {
                 registrasi dengan klik Daftar
               </p>
             </div>
+           
             {errMessage ? (
               <div>
                 <button className="border border-2 rounded-[5px] border-[orange] bg-[orange] text-white p-2">
@@ -91,10 +97,8 @@ function login() {
 
             {loginSucces ? (
               <div>
-                <button className="border border-2 rounded-[5px] border-[#1c46ed] bg-[#1c46ed] text-white p-2 mt-6">
-                  {loginSucces
-                    ? `Login Succes...`
-                    : null}
+                <button className="border border-2 rounded-[5px] border-[#0dcaf0] bg-[#0dcaf0] text-white p-2 mt-6">
+                  {loginSucces ? `Login Succes...` : null}
                 </button>
               </div>
             ) : null}
@@ -123,7 +127,12 @@ function login() {
             </div>
 
             <button
-              className="border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
+              className={
+                isLoading
+                  ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px]"
+                  : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
+              }
+              disabled= {isLoading}
               onClick={() => handleLogin()}
             >
               {isLoading ? "Loading.." : "Masuk"}
@@ -131,7 +140,7 @@ function login() {
 
             <div className="flex justify-center gap-2 mt-[10px]">
               <p>Anda belum punya akun?</p>
-              <p className="text-[#FBB017]"> Daftar disini</p>
+              <button className="text-[#FBB017]" onClick={(()=>(router.push('/signup')))}> Daftar disini</button>
             </div>
           </div>
         </div>
@@ -140,27 +149,24 @@ function login() {
   );
 }
 
+export async function getServerSideProps({ req, res }) {
+  //check cookies dari ssr dan melarang user ke halaman login jika sudah ada data di cookie
 
-export async function getServerSideProps({req,res}) { //check cookies dari ssr dan melarang user ke halaman login jika sudah ada data di cookie
+  const user = getCookie("user", { req, res });
+  const token = getCookie("token", { req, res });
 
-const user = getCookie('user', {req,res})
-const token = getCookie('token', {req,res})
+  console.log(user);
+  console.log(token);
 
-console.log(user)
-console.log(token)
-
-if (user&&token) {
-
-  return {
-    redirect: {
-      permanent: false,
-      destination: "/"
-    }
+  if (user && token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
   }
-  
-}
 
-
-  return { props: {}};
+  return { props: {} };
 }
 export default login;

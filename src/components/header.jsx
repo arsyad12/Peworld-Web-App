@@ -1,10 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
-import { getCookie } from "cookies-next";
+import { deleteCookie, getCookie } from "cookies-next";
+import { useRouter } from "next/router";
+
 
 function Header() {
+  const router = useRouter()
   const [isNavOpen, setIsNavOpen] = React.useState(false); // initiate isNavOpen state with false
+  const [imageClick, setImageClick] = React.useState(false);
 
   //cara ambil data dari cookie agar tidak hydrating component
   //harus dibikin state dulu dan ditampung datanya kedalam state
@@ -21,6 +25,8 @@ function Header() {
       //set nilai user dengan data yang dijadikan json
       //karena didalam cookie data yang kita punya bentuknya adalah string
     }
+
+
   }, []);
 
   return (
@@ -28,18 +34,47 @@ function Header() {
       {/* header */}
       <nav className="container mx-auto mt-6  ">
         <header className="flex justify-between drop-shadow-md">
+          <Link href={"/"}>
           <img
             className="px-[15px] md:px-[1px]"
             src="/logo_grape.png"
             alt="logo"
             style={{ height: "35px", width: "127px" }}
           />
+          </Link>
           {user ? (
-            <img
-              src={user.photo}
-              alt="sss"
-              className="border h-[40px] w-[40px] rounded-full invisible md:visible"
-            />
+            <div>
+              <img
+                src={user.photo}
+                alt="sss"
+                className="border h-[40px] w-[40px] rounded-full invisible md:visible"
+                onClick={() => setImageClick((isFalse) => !isFalse)}
+              />
+              {imageClick ? (
+                <ul className="mt-2 p-3 border border-2 border-[#FFFFFF] bg-[#FFFFFF] drop-shadow-md absolute right-0 invisible md:visible">
+                
+                  <li className="mt-[10px]">
+                    <button>Profile</button>
+                  </li>
+                  <li className="mt-[10px]">
+                  <Link href={"/talent-list"}><button>Talent List</button></Link>
+                  </li>
+                  <li className="mt-[10px]">
+                    <Link href={"/"}>
+                    <button
+                      onClick={() => {
+                        deleteCookie("user");
+                        deleteCookie("token");
+                        router.reload();
+                      }}
+                    >
+                      Logout
+                    </button>
+                    </Link>
+                  </li>
+                </ul>
+              ) : null}
+            </div>
           ) : (
             <div className="invisible md:visible flex gap-3">
               <Link href={"/login"}>
@@ -54,6 +89,7 @@ function Header() {
               </Link>
             </div>
           )}
+
           <div className="MOBILE-MENU flex md:hidden ">
             <div
               className="HAMBURGER-ICON h-[50px] w-[50px] pr-4"

@@ -9,14 +9,15 @@ function Contact(props) {
   const { data } = props;
 
   const token = getCookie("token");
-  // console.log(token)
 
-  // const [user,setUser] = React.useState(getCookie("user"))
   const [sender, setSender] = React.useState("");
   const [subject, setSubject] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [sendSucces, setSendSuccess] = React.useState(false);
 
   const handleMessage = () => {
+    setLoading(true);
     axios
       .post(
         `https://hire-job.onrender.com/v1/contact`,
@@ -27,14 +28,18 @@ function Contact(props) {
           subject: subject,
           description: message,
         },
-        {headers : {Authorization:`Bearer ${token}`}}
-        )
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
 
       .then((res) => {
         console.log(res);
+        setSendSuccess(true);
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -101,6 +106,12 @@ function Contact(props) {
                   </p>
                 </div>
 
+                {sendSucces ? (
+                  <div className="border border-2 border-[#0dcaf0] rounded-[5px] bg-[#0dcaf0] mt-2 mb-2">
+                    <p className="p-2">Message has been send, talent will reply your message maximum 7 days later</p>
+                  </div>
+                ) : null}
+
                 <label for="basic-url" className="form-label text-[12px] py-2">
                   Sender
                 </label>
@@ -131,21 +142,17 @@ function Contact(props) {
                   onChange={(item) => setMessage(item.target.value)}
                 />
 
-                <div className="flex justify-end mt-[10px]">
-                  <p>Lupa kata sandi?</p>
-                </div>
-
                 <button
-                  className="border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
-                  onClick={(()=>handleMessage())}
+                  className={
+                    loading
+                      ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px] mt-[30px]"
+                      : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px] mt-[30px]"
+                  }
+                  onClick={() => handleMessage()}
+                  disabled={loading}
                 >
-                  Send Messages
+                  {loading ? "Loading..." : "Send Messages"}
                 </button>
-
-                <div className="flex justify-center gap-2 mt-[10px] mb-6">
-                  <p>Anda belum punya akun?</p>
-                  <p className="text-[#FBB017]"> Daftar disini</p>
-                </div>
               </div>
             </div>
           </div>

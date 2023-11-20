@@ -57,7 +57,7 @@ export default function Home() {
             </h1>
             {["Smart", "Full Contribution", "Fast Learnner", "Adaptable"]?.map(
               (item, key) => (
-                <div key={key} className="flex gap-4 mb-6">
+                <div key={key} className="flex gap-2 mb-6">
                   <img src="/tick 1.png" />
                   <p>{item}</p>
                 </div>

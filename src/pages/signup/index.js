@@ -2,8 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from "react";
 import axios from "axios";
-
+import Router from "next/router";
 function signup() {
+  const router = Router
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [fullname, setFullname] = React.useState("");
@@ -30,8 +31,8 @@ function signup() {
     })
       .then((result) => {
         console.log(result);
-
         setRegSuccess(true);
+        router.push('/login')
       })
       .catch((err) => {
         console.log(err);
@@ -160,26 +161,17 @@ function signup() {
               onChange={(item) => setPhone(item.target.value)}
             />
 
-            <div className="flex justify-end mt-[10px]">
-              <p>Lupa kata sandi?</p>
-            </div>
-
             <button
               className={
                 loading
-                  ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px]"
-                  : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px]"
+                  ? "border border-[#6c757d] bg-[#6c757d] text-[white] p-3 mt-[10px] rounded-[4px] mb-[30px] mt-[30px]"
+                  : "border border-[#FBB017] bg-[#FBB017] text-[white] p-3 mt-[10px] rounded-[4px] mb-[30px] mt-[30px]"
               }
               onClick={() => registerHandler()}
               disabled={loading}
             >
-              {loading ? "Loading..." : "Masuk"}
+              {loading ? "Loading..." : "SIGNUP"}
             </button>
-
-            <div className="flex justify-center gap-2 mt-[10px] mb-6">
-              <p>Anda belum punya akun?</p>
-              <p className="text-[#FBB017]"> Daftar disini</p>
-            </div>
           </div>
         </div>
       </div>
