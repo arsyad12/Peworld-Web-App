@@ -129,7 +129,7 @@ function Talent(props) {
                     </div>
                   </div>
 
-                  <div className="identity col-span-2 flex items-center flex justify-center md:justify-start mb-[20px]">
+                  <div className="identity col-span-2 items-center flex justify-center md:justify-start mb-[20px]">
                     <button
                       onClick={() =>
                         router.push(`/talent-list/detail/${item.id}`)

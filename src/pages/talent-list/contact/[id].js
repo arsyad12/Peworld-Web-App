@@ -191,7 +191,7 @@ export async function getServerSideProps({ req, res, params }) {
 
   const request = await axios({
     method: "get",
-    url: `http://localhost:3000/api/listTalent?id=${id}`, //kemudain request ambil data yang parameter id nya sama dengan id dari props.params
+    url: `${process.env.BASE_URL}/api/listTalent?id=${id}`, //kemudain request ambil data yang parameter id nya sama dengan id dari props.params
   });
 
   return { props: request.data };
