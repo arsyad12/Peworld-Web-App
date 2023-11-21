@@ -70,7 +70,7 @@ function Detail(props) {
               ) : (
                 <button
                   onClick={() => Router.push(`/talent-list/contact/${data.id}`)}
-                  className="border border-4 border-[grey] bg-[grey] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]"
+                  className="text-[10px] md:text-[20px] border border-4 border-[grey] bg-[grey] w-[120px] md:w-[297px] h-[40px] md:h-[50px] p-1 text-[white] rounded-[5px]"
                 >
                   LOGIN FIRST FOR HIRE
                 </button>
