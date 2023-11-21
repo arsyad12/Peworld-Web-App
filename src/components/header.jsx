@@ -52,7 +52,7 @@ function Header() {
                 onClick={() => setImageClick((isFalse) => !isFalse)}
               />
               {imageClick ? (
-                <ul className="mt-2 p-3 border border-2 border-[#FFFFFF] bg-[#FFFFFF] drop-shadow-md absolute right-0 invisible md:visible">
+                <ul className="mt-2 p-3 border border-2 border-[#FFFFFF] bg-[#FFFFFF] text-[#5E50A1] drop-shadow-md absolute right-0 invisible md:visible mr-10">
                 
                   <li className="mt-[10px]">
                     <button>Profile</button>
@@ -61,7 +61,7 @@ function Header() {
                   <Link href={"/talent-list"}><button>Talent List</button></Link>
                   </li>
                   <li className="mt-[10px]">
-                    <Link href={"/"}>
+                  
                     <button
                       onClick={() => {
                         deleteCookie("user");
@@ -71,7 +71,7 @@ function Header() {
                     >
                       Logout
                     </button>
-                    </Link>
+                   
                   </li>
                 </ul>
               ) : null}
@@ -133,18 +133,29 @@ function Header() {
                 </div>
                 <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/login"}>
-                    <p>Signin</p>
+                    <p>SIGNIN</p>
                   </Link>
                 </div>
                 <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/signup"}>
-                    <p>Signup</p>
+                    <p>SIGNUP</p>
                   </Link>
                 </div>
                 <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
                   <Link href={"/talent-list"}>
-                    <p>Talent List</p>
+                    <p>TALENT LIST</p>
                   </Link>
+                </div>
+                <div className="flex items-center justify-center pt-[15px] text-[#5E50A1]">
+                <button
+                      onClick={() => {
+                        deleteCookie("user");
+                        deleteCookie("token");
+                        router.reload();
+                      }}
+                    >
+                      LOGOUT
+                    </button>
                 </div>
               </div>
             </div>
