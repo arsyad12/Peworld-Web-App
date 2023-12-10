@@ -13,8 +13,9 @@ function Header() {
   //cara ambil data dari cookie agar tidak hydrating component
   //harus dibikin state dulu dan ditampung datanya kedalam state
 
-  const [user, setUser] = React.useState(null); //defaultnya adalah null
+  const [user, setUser] = React.useState(undefined); //defaultnya adalah null
 
+  console.log(user)
   // console.log(user);
 
   React.useEffect(() => {
@@ -47,7 +48,7 @@ function Header() {
             <div>
               <img
                 src={user.photo}
-                alt="sss"
+                alt="profile"
                 className="border h-[40px] w-[40px] rounded-full invisible md:visible"
                 onClick={() => setImageClick((isFalse) => !isFalse)}
               />
