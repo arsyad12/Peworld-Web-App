@@ -1,40 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br />
+<p align="center">
+  <div align="center">
+    <img height="150" src="https://camo.githubusercontent.com/f1a1550db5f8823206f0cac7c71589628d92184d54370ac6a1fca83d1bd3b406/68747470733a2f2f692e706f7374696d672e63632f3479354d525438392f7065776f726c642d6c6f676f2e706e67" alt="Peworld" border="0"/>
+  </div>
+  <h3 align="center">Peworld</h3>
+  <p align="center">
+    <a href="https://github.com/arsyad12/Peworld-Web-App"><strong>Explore the docs »</strong></a>
+    <br />
+  <a href="https://documenter.getpostman.com/view/30080582/2s9Ykn9hXP">View Documentation</a>
+    ·
+    <a href="https://tickets-be.vercel.app/"">Api Demo</a> -->
+  </p>
+</p>
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Installation](#installation)
+  - [Related Project](#related-project)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# About The Project
+
+Peworld is a movie web application designed for users to discover, explore and enjoy movies. With an intuitive and user-friendly interface, Peworld offers information about all the films showing, and upcoming ones. 
+
+Peworld provides you with film details, just click on the image of the film you want to know information about, and of course you can order the film also on the web here, but don't forget to log in first
+
+To create Peworld, Im using cutting-edge technologies like React Js, Bootstrap, Moment, Axios, PostMan, Redux toolkit, which will provide efficient experience.
+
+## Built With
+
+These are the libraries and service used for building this backend API
+
+- [Next Js](https://nextjs.org/docs/)
+- [Node Js](https://nodejs.org)
+- [Tailwinf](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/docs/intro)
+- [PostMan](https://www.postman.com/)
+
+
+# Installation
+
+1. Clone this repository
+
+```sh
+git clone https://github.com/arsyad12/Peworld-Web-App.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Change directory to Peworld-Web-App
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+cd Peworld-Web-App
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. Install all of the required modules
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+6. Run this command to run the server
 
-## Learn More
+```sh
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+- Or run this command for running in development environment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Demo App
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Documentation files are provided in the [Demo](https://Peworld-Web-App.vercel.app/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Related Project
+
+:rocket: [`Frontend Peworld`](https://github.com/arsyad12/Peworld-Web-App)
+
+:rocket: [`Demo Peworld`](https://peworld-hirejob-web-seven.vercel.app/)
+
