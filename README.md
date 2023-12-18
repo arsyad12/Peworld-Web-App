@@ -7,9 +7,7 @@
   <p align="center">
     <a href="https://github.com/arsyad12/Peworld-Web-App"><strong>Explore the docs »</strong></a>
     <br />
-  <a href="https://documenter.getpostman.com/view/30080582/2s9Ykn9hXP">View Documentation</a>
-    ·
-    <a href="https://tickets-be.vercel.app/"">Api Demo</a> -->
+  <a href="https://peworld-hirejob-web-seven.vercel.app/">View Demo</a>
   </p>
 </p>
 
