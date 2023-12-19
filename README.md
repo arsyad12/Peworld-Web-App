@@ -72,17 +72,24 @@ npm run dev
 ```
 
 ## ScreenShoot Project
-| Home Page | Register Page | Login Page | Search Page |
-| :---: | :---: | :---: | :---: |
-|![Home Page](https://i.ibb.co/wwkxNHV/screencapture-peworld-hirejob-web-seven-vercel-app-talent-list-2023-12-19-12-06-49.png)|![Register Page](https://i.ibb.co/J7K27vD/register.png)|![Login Page](https://i.ibb.co/8jqYxYk/login.png)|![Search Page](https://i.ibb.co/7yydkWn/search.png)|
+| Home Page | Home Page After Login|
+| :---: | :---: |
+|![Home Page](https://i.ibb.co/0c2GKgM/scrnli-12-19-2023-12-14-04-PM.png)|![Register Page](https://i.ibb.co/WHWR6sv/screencapture-peworld-hirejob-web-seven-vercel-app-2023-12-19-12-29-35.png)|
 
-| My Recipe Page | Bookmark Page | Like Page | Add Recipe Page |
-| :---: | :---: | :---: | :---: |
-|![My Recipe Page](https://i.ibb.co/6mfgVRK/myrecipe.png)|![Bookmark Page](https://i.ibb.co/wYNdRDD/images-1.jpg)|![Like Page](https://i.ibb.co/rFzBLbS/mylike.png)|![Add Recipe Page](https://i.ibb.co/z7LfxS2/addmenu.png)|
 
-| Detail Menu Page | Update Profile Page | Change Password Page | Verification Page |
-| :---: | :---: | :---: | :---: |
-|![Detail Menu Page](https://i.ibb.co/cJrRmD4/detailmenu.png)|![Update Profile Page](https://i.ibb.co/MRPjVXM/editprofile.png)|![Change Password Page](https://i.ibb.co/MpXMbjT/changepasswordprofile.png)|![Verification Page](https://i.ibb.co/8DWdNRH/verifaccount.png)|
+| Register Page | Login Page |
+| :---: | :---: |
+|![My Recipe Page](https://i.ibb.co/dbzW8JS/screencapture-peworld-hirejob-web-seven-vercel-app-signup-2023-12-19-12-24-46.png)|![Bookmark Page](https://i.ibb.co/WK3jVtY/screencapture-peworld-hirejob-web-seven-vercel-app-login-2023-12-19-12-33-55.png)|
+
+
+| List Talent Page | Detail Talent |
+| :---: | :---: |
+|![My Recipe Page](https://i.ibb.co/vkyZQx4/screencapture-peworld-hirejob-web-seven-vercel-app-talent-list-2023-12-19-12-35-56.png)|![Bookmark Page](https://i.ibb.co/6FhQks0/screencapture-peworld-hirejob-web-seven-vercel-app-talent-list-detail-1-2023-12-19-12-38-06.png)|
+
+| Contact Page |
+| :---: |
+|![My Recipe Page](https://i.ibb.co/FKGvQT3/screencapture-peworld-hirejob-web-seven-vercel-app-talent-list-contact-1-2023-12-19-12-39-06.png)
+
 
 ## Demo App
 
