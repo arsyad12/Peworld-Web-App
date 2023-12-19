@@ -71,6 +71,18 @@ npm run start
 npm run dev
 ```
 
+## ScreenShoot Project
+| Home Page | Register Page | Login Page | Search Page |
+| :---: | :---: | :---: | :---: |
+|![Home Page](https://i.ibb.co/wwkxNHV/screencapture-peworld-hirejob-web-seven-vercel-app-talent-list-2023-12-19-12-06-49.png)|![Register Page](https://i.ibb.co/J7K27vD/register.png)|![Login Page](https://i.ibb.co/8jqYxYk/login.png)|![Search Page](https://i.ibb.co/7yydkWn/search.png)|
+
+| My Recipe Page | Bookmark Page | Like Page | Add Recipe Page |
+| :---: | :---: | :---: | :---: |
+|![My Recipe Page](https://i.ibb.co/6mfgVRK/myrecipe.png)|![Bookmark Page](https://i.ibb.co/wYNdRDD/images-1.jpg)|![Like Page](https://i.ibb.co/rFzBLbS/mylike.png)|![Add Recipe Page](https://i.ibb.co/z7LfxS2/addmenu.png)|
+
+| Detail Menu Page | Update Profile Page | Change Password Page | Verification Page |
+| :---: | :---: | :---: | :---: |
+|![Detail Menu Page](https://i.ibb.co/cJrRmD4/detailmenu.png)|![Update Profile Page](https://i.ibb.co/MRPjVXM/editprofile.png)|![Change Password Page](https://i.ibb.co/MpXMbjT/changepasswordprofile.png)|![Verification Page](https://i.ibb.co/8DWdNRH/verifaccount.png)|
 
 ## Demo App
 
